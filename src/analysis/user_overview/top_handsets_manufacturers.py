@@ -3,10 +3,10 @@ import pandas as pd
 from collections import Counter
 
 
-def get_top_handsets(xdr_df):
+def get_top_handsets(df):
     
     # Group by Handset Manufacturer and Handset Type and count 
-    handset_counts = xdr_df.groupby(['Handset Manufacturer', 'Handset Type']).size().reset_index(name='Count')
+    handset_counts = df.groupby(['Handset Manufacturer', 'Handset Type']).size().reset_index(name='Count')
 
     # Sort the counts in descending order
     sorted_handsets = handset_counts.sort_values(by='Count', ascending=False)
@@ -19,7 +19,7 @@ def get_top_handsets(xdr_df):
 
 
 
-def get_top_handset_manufacturers(xdr_data, top_n=3):
+""" def get_top_handset_manufacturers(xdr_data, top_n=3):
     # Load the xDR session data into a pandas DataFrame
     df = pd.DataFrame(xdr_data)
 
@@ -71,4 +71,4 @@ top_handsets_per_manufacturer = identify_top_handsets(top_manufacturers, xdr_dat
 for manufacturer, handsets in top_handsets_per_manufacturer.items():
     print(f"\nTop 5 Handsets for {manufacturer}:")
     for handset in handsets:
-        print(handset)
+        print(handset) """
