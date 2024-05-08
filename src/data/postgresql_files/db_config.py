@@ -5,17 +5,17 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
 def load_env_variables():
-    # Load environment variables from .env file
+    # Load env variables from .env file
     load_dotenv()
 
-    # Access environment variables
+    # Access env variables
     user = os.getenv('USER')
     password = os.getenv('PASSWORD')
     host = os.getenv('HOST')
     port = os.environ.get('PORT')
     database = os.environ.get('DATABASE')
 
-    # Create and return the db_config object
+    # Return db_config object
     db_config = {
         'user': user,
         'password': password,
