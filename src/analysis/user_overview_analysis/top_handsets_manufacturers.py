@@ -1,5 +1,4 @@
 
-
 import pandas as pd
 from collections import Counter
 
@@ -17,7 +16,6 @@ def get_top_handsets(xdr_df):
 
     # Return a list
     return top_10_handsets[['Handset Manufacturer', 'Handset Type']].values.tolist()
-
 
 
 
@@ -62,15 +60,6 @@ def identify_top_handsets(top_manufacturers, xdr_data):
     return top_handsets_per_manufacturer
 
 
-# Example usage
-xdr_data = [
-    {'Bearer ID': '123456', 'Dur. (ms)': 5000, 'Start': '2022-01-01 10:00:00', 'Handset Manufacturer': 'Apple', 'Handset Type': 'iPhone 12'},
-    {'Bearer ID': '789012', 'Dur. (ms)': 6000, 'Start': '2022-01-01 11:00:00', 'Handset Manufacturer': 'Samsung', 'Handset Type': 'Galaxy S20'},
-    {'Bearer ID': '345678', 'Dur. (ms)': 7000, 'Start': '2022-01-01 12:00:00', 'Handset Manufacturer': 'Apple', 'Handset Type': 'iPhone 11'},
-    {'Bearer ID': '901234', 'Dur. (ms)': 8000, 'Start': '2022-01-01 13:00:00', 'Handset Manufacturer': 'Huawei', 'Handset Type': 'P30'},
-    {'Bearer ID': '567890', 'Dur. (ms)': 9000, 'Start': '2022-01-01 14:00:00', 'Handset Manufacturer': 'Samsung', 'Handset Type': 'Galaxy S21'},
-    {'Bearer ID': '234567', 'Dur. (ms)': 10000, 'Start': '2022-01-01 15:00:00', 'Handset Manufacturer': 'Apple', 'Handset Type': 'iPhone 12 Pro'},
-]
 
 # Get the top handset manufacturers
 top_manufacturers = get_top_handset_manufacturers(xdr_data, top_n=3)
