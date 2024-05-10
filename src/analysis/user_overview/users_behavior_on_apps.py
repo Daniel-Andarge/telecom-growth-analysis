@@ -59,10 +59,6 @@ def analyze_basic_metrics(df):
 
     return metrics
 
-
-
-
-
 def perform_bivariate_analysis(df):
     # Select the columns for analysis
     # Exclude MSISDN/Number and Bearer_Id columns
@@ -106,7 +102,9 @@ def calculate_total_data_per_decile(user_data):
 
 def perform_correlation_analysis(dataframe):
     # Create a subset of the dataset containing the relevant columns
-    data_subset = dataframe[['SM_DL', 'SM_UL', 'Google_DL', 'Google_UL', 'Email_DL', 'Email_UL', 'YouTube_DL', 'YouTube_UL', 'Netflix_DL', 'Netflix_UL', 'Gaming_DL', 'Gaming_UL', 'Other_DL', 'Other_UL']]
+    data_subset = dataframe[['SM_DL', 'SM_UL', 'Google_DL', 'Google_UL', 'Email_DL', 
+                             'Email_UL', 'YouTube_DL', 'YouTube_UL', 'Netflix_DL', 'Netflix_UL', 
+                             'Gaming_DL', 'Gaming_UL', 'Other_DL', 'Other_UL']]
 
     # Compute the correlation matrix
     correlation_matrix = data_subset.corr()
