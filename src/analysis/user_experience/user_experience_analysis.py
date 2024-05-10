@@ -37,7 +37,6 @@ def compute_top_bottom_frequent_values(data):
     bottom_throughput_values = data['Avg_Throughput'].nsmallest(10)
     most_frequent_throughput_values = data['Avg_Throughput'].value_counts().head(10)
 
-    # Return the computed values as dictionaries
     return {
         'Top TCP Values': top_tcp_values,
         'Bottom TCP Values': bottom_tcp_values,
