@@ -67,6 +67,7 @@ target/
 
 src/data/postgresql_files/schema.sql
 src/data/postgresql_files/telecom.sql
+src/data/postgresql_files/cleaned_dataset.csv
 notebooks/load_data.ipynb
 # Pycharm
 .idea
