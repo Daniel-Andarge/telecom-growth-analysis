@@ -4,7 +4,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def aggregate_user_behavio(df):
+
+def get_top_handsets(df):
+    
+    # Group by Handset Manufacturer and Handset Type and count 
+    handset_counts = df.groupby(['Handset Manufacturer', 'Handset Type']).size().reset_index(name='Count')
+
+    # Sort  counts in descending order
+    sorted_handsets = handset_counts.sort_values(by='Count', ascending=False)
+
+    # Top 10 handsets
+    top_10_handsets = sorted_handsets.head(10)
+
+    # Return a list
+    return top_10_handsets[['Handset Manufacturer', 'Handset Type']].values.tolist()
+
+
+def aggregate_user_behavior(df):
     aggregated_data = df.groupby('MSISDN/Number').agg({
         'Bearer Id': 'count',
         'Dur. (ms)': 'mean',  

@@ -47,14 +47,23 @@ def handle_missing_values(df):
     return df_filled
 
 
-def save_processed_dataset(df, output_folder):
-    # Create the output folder if it doesn't exist
+
+def handdle_outliers(df):
+
+
+
+    return df_cleaned
+
+
+
+def save_dataset(df, output_folder):
+
+    # Create  output folder if it doesn't exist
     os.makedirs(output_folder, exist_ok=True)
 
-   
     df_processed = handle_missing_values(df)
 
-    # Save the cleaned dataset
+    # Save cleaned dataset
     output_path = os.path.join(output_folder, 'cleaned_dataset.csv')
     df_processed.to_csv(output_path, index=False)
 
@@ -62,11 +71,11 @@ def save_processed_dataset(df, output_folder):
     return output_path
 
 
-def load_cleaned_dataset():
+def load_dataset(path):
     try:
         # Get the path to the CSV file
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        csv_path = os.path.join(current_dir, 'cleaned_dataset.csv')
+        csv_path = os.path.join(current_dir, 'path')
 
         # Load the CSV file into a DataFrame
         df = pd.read_csv(csv_path)
