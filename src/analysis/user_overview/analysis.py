@@ -72,8 +72,9 @@ def aggregate_user_behavior(df):
 def analyze_basic_metrics(df):
 
     metrics = df.drop("MSISDN/Number", axis=1).describe()
-
+    
     return metrics
+
 
 def perform_bivariate_analysis(df):
     # Select the columns for analysis

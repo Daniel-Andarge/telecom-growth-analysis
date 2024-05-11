@@ -56,35 +56,28 @@ def handdle_outliers(df):
 
 
 
-def save_dataset(df, output_folder):
+def save_dataset(df, output_folder, filename):
 
     # Create  output folder if it doesn't exist
     os.makedirs(output_folder, exist_ok=True)
 
-    df_processed = handle_missing_values(df)
-
+ 
     # Save cleaned dataset
-    output_path = os.path.join(output_folder, 'cleaned_dataset.csv')
-    df_processed.to_csv(output_path, index=False)
+    output_path = os.path.join(output_folder, filename)
+    df.to_csv(output_path, index=False)
 
-    print(f"Cleaned dataset saved to {output_path}")
+    print(f"Dataset saved to {output_path}")
     return output_path
 
 
 def load_dataset(path):
     try:
-        # Get the path to the CSV file
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        csv_path = os.path.join(current_dir, 'path')
-
         # Load the CSV file into a DataFrame
-        df = pd.read_csv(csv_path)
-
+        df = pd.read_csv(path)
         return df
     except FileNotFoundError as e:
         print(f"Error: {e}. The dataset file was not found.")
     except Exception as e:
         print(f"Error: {e}. An error occurred while loading the dataset.")
-
     return None
 
