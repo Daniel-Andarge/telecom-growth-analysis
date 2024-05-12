@@ -25,17 +25,15 @@ def aggregate_engagement_metrics(df):
 
 
 def get_top_ten_customers(aggregated_data):
-        # Step 2: Rank customers based on each engagement metric
+        
     aggregated_data['Rank_Duration'] = aggregated_data['Duration'].rank(ascending=False)
     aggregated_data['Rank_Sessions'] = aggregated_data['Bearer_Id'].rank(ascending=False)
     aggregated_data['Rank_Traffic'] = (aggregated_data['Total_UL'] + aggregated_data['Total_DL']).rank(ascending=False)
     
-    # Step 3: Select the top 10 customers for each engagement metric
     top_10_duration = aggregated_data.nlargest(10, 'Rank_Duration')
     top_10_sessions = aggregated_data.nlargest(10, 'Rank_Sessions')
     top_10_traffic = aggregated_data.nlargest(10, 'Rank_Traffic')
     
-    # Step 4: Report the top 10 customers per engagement metric
     top_10_duration_list = top_10_duration['MSISDN/Number'].tolist()
     top_10_sessions_list = top_10_sessions['MSISDN/Number'].tolist()
     top_10_traffic_list = top_10_traffic['MSISDN/Number'].tolist()
@@ -48,8 +46,7 @@ def get_top_ten_customers(aggregated_data):
 
 
 
-def engagement_classification(aggregated_data):
-    # Select the engagement metrics you want to use for clustering
+def engagement_classification(aggregated_data)
     engagement_metrics = ['Duration', 'Bearer_Id', 'Total_UL', 'Total_DL']
 
     # Normalize the engagement metrics using StandardScaler
